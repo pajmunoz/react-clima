@@ -57,11 +57,10 @@ class App extends React.Component {
  
     getWeather = async e =>{
     e.preventDefault()
-    const {ciudad, pais}=e.target.elements
+    const {ciudad}=e.target.elements
     const valCiudad = ciudad.value
-    const valPais = pais.value
 
-    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${valCiudad},${valPais}&appid=${WEATHER_KEY}&units=metric&lang=es`
+    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${valCiudad}&appid=${WEATHER_KEY}&units=metric&lang=es`
     const API_URL2 = `https://api.openweathermap.org/data/2.5/forecast?q=${valCiudad}&appid=${WEATHER_KEY}&units=metric&lang=es`
     const response = await fetch(API_URL)
     const response2 = await fetch(API_URL2)

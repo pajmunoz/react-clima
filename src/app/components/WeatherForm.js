@@ -1,19 +1,22 @@
-import React from 'react'
+import React from "react";
 
-const WeatherForm = props => (
-        <div className="card card-body">
-            <form onSubmit={props.getWeather} >
-                <div className="form-group">
-                    <input type="text" name="ciudad" placeholder="Ciudad" className="form-control" autoFocus/>
-                </div>
-                <div className="form-group mt-2">
-                    <input type="text" name="pais" placeholder="País" className="form-control"/>
-                </div>
-                <button className="btn btn-success w-100 mt-2">
-                    Buscar
-                </button>
-            </form>
-        </div>
-    )
+const WeatherForm = (props) => (
+  <div className="card card-body">
+    <form onSubmit={props.getWeather}>
+      <div className="form-group">
+        <select className="form-select" name="ciudad" aria-label="Default select example" placeholder="Ciudad" autoFocus>
+          <option value="quito" >Quito</option>
+          <option value="buenos aires">Buenos Aires</option>
+          <option value="paris">Paris</option>
+          <option value="london">Londres</option>
+          <option value="kiev">Kiev</option>
+        </select>
+        
+      </div>
+ 
+      <button className="btn btn-success w-100 mt-2">Buscar</button>
+    </form>
+  </div>
+);
 
-export default WeatherForm
+export default WeatherForm;

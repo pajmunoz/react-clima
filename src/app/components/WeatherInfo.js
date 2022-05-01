@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const WeatherInfo = props =>  (
-        <div className="card card-body">
-            <h1>{props.temperature}º</h1>
-            {props.city},{props.country}
-            <p>{props.description}</p>
-        </div>
-    )
+const WeatherInfo = (props) => (
+  <>
+    {props.error && (
+      <div className="alert alert-danger">
+        <p>{props.error}</p>
+      </div>
+    )}
+    <div className="card card-body">
+      <h1>{props.temperature}º</h1>
+      {props.city},{props.country}
+      <p>{props.description}</p>
+    </div>
+  </>
+);
 
-export default WeatherInfo
+export default WeatherInfo;
