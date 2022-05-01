@@ -4,6 +4,17 @@ import WeatherForm from './components/WeatherForm'
 import {WEATHER_KEY} from './keys'
 
 class App extends React.Component {
+
+    state={
+        temperature:'',
+        description:'',
+        humidity:'',
+        wind_speed:'',
+        city:'',
+        country:'',
+        erro:null,
+
+    }
  
     getWeather = async e =>{
     e.preventDefault()
@@ -11,11 +22,20 @@ class App extends React.Component {
     const valCiudad = ciudad.value
     const valPais = pais.value
 
-    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${valCiudad},${valPais}&appid=${WEATHER_KEY}`
+    const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${valCiudad},${valPais}&appid=${WEATHER_KEY}&units=metric&lang=es`
     const response = await fetch(API_URL)
-    const data= response.json()
+    const data= await response.json()
     console.log(data)
     
+    this.setState({
+        temperature: data.main.temp,
+        description:data.weather[0].description,
+        humidity:data.main.humidity,
+        wind_speed:data.wind.speed,
+        city:data.name,
+        country:data.sys.country,
+        erro:null,
+    })
     
     }
 
@@ -25,7 +45,7 @@ class App extends React.Component {
             <div className="row">
                 <div className="col">
                     <WeatherForm getWeather={this.getWeather} />
-                    <WeatherInfo />
+                    <WeatherInfo {...this.state} />
                 </div>
             </div>
         </div>
