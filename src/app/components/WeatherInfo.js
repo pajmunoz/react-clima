@@ -8,9 +8,9 @@ const WeatherInfo = (props) => (
       </div>
     )}
     <div className="card card-body">
-      <h1>{props.temperature}ºC</h1>
-      {props.city},{props.country}
-      <p>{props.description}</p>
+      <div className="display-1">{props.temperature}ºC</div>
+      <div className="display-4 fw-bold">{props.city}</div>
+      <p className="lead">{props.description}</p>
     </div>
   </>
 );

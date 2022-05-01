@@ -12,6 +12,7 @@ class App extends React.Component {
     wind_speed: "",
     city: "-",
     country: "-",
+    img_bg: "",
     error: null,
     week: {
       0: [
@@ -80,6 +81,7 @@ class App extends React.Component {
       wind_speed: data.wind.speed,
       city: data.name,
       country: data.sys.country,
+      img_bg: data.weather[0].description,
       error: null,
       week: {
         0: [
@@ -122,10 +124,11 @@ class App extends React.Component {
   };
 
   render() {
+ 
     return (
-      <div className="container p-4">
+      <div className={`cont p-4 ${this.state.img_bg}`}>
         <div className="row">
-          <div className="col card card-body">
+          <div className="col card card-body main">
             <div className="row">
               <div className="col-12 col-md-6 col-lg-4">
                 <div className="display-4 p-2">Clima</div>

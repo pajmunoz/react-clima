@@ -14,7 +14,7 @@ const WeatherForm = (props) => (
         
       </div>
  
-      <button className="btn btn-success w-100 mt-2">Buscar</button>
+      <button className="btn btn-outline-light w-100 mt-2">Buscar</button>
     </form>
   </div>
 );
