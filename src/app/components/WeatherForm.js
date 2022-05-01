@@ -4,7 +4,7 @@ const WeatherForm = (props) => (
   <div className="card card-body">
     <form onSubmit={props.getWeather}>
       <div className="form-group">
-        <select className="form-select" name="ciudad" aria-label="Default select example" placeholder="Ciudad" autoFocus>
+        <select className="form-select" name="ciudad" aria-label="ciudad" placeholder="Ciudad" autoFocus>
           <option value="quito" >Quito</option>
           <option value="buenos aires">Buenos Aires</option>
           <option value="paris">Paris</option>
