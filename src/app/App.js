@@ -13,6 +13,7 @@ class App extends React.Component {
     city: "-",
     country: "-",
     img_bg: "",
+    icon:"01d",
     error: null,
     week: {
       0: [
@@ -82,6 +83,7 @@ class App extends React.Component {
       city: data.name,
       country: data.sys.country,
       img_bg: data.weather[0].description,
+      icon: data.weather[0].icon,
       error: null,
       week: {
         0: [

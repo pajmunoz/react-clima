@@ -2,6 +2,12 @@ body{
     color: #fff;
     text-transform: capitalize;
 }
+.icon{
+    text-align: right;
+}
+.img-thumbnail{
+    background-color: rgba(255, 255, 255, 0.5);
+}
 .cont{
     background-image: url(../assets/def.jpeg);
     background-repeat: no-repeat;
@@ -48,6 +54,15 @@ body{
 }
 .nubes .card{
     background-color: rgba(92, 122, 153, 0.7)
+}
+.muy.nuboso{
+    background-image: url(../assets/nuboso.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.muy.nuboso .card{
+    background-color: rgba(51, 76, 101, 0.7)
 }
 .main{
 background: rgba(255, 255, 255, 0.17);
