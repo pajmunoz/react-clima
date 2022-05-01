@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build":"cross-env NODE_ENV=production webpack --env production",
-    "start":"webpack-dev-server --open"
+    "build":"cross-env NODE_ENV=production webpack --env development --watch",
+    "start":"webpack-dev-server --open --port 8888"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
