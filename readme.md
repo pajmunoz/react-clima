@@ -22,7 +22,7 @@
 
 ### Para revisar el sitio  hosteado en GH-PAGES:
 
-[App Clima](https://pajmunoz.github.io/react-clima/build/)
+[App Clima](https://pajmunoz.github.io/react-clima)
 ## importante!
 Open weather api tenia deshabilitada la feature de tomar datos diarios, por lo tanto se trabajo con los datos diarios de 5 dias, cada 3 horas, documentados en este enlace (https://openweathermap.org/forecast5) es el único que servia para cumplir los objetivos del challenge.
 
