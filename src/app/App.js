@@ -63,18 +63,19 @@ class App extends React.Component {
 
 		function formatDate(newDate) {
 			const months = {
-				0: 'Enero',
-				1: 'Febrero',
-				2: 'Marzo',
-				3: 'Abril',
-				4: 'Mayo',
-				5: 'Junio',
-				6: 'Julio',
-				7: 'Augosto',
-				8: 'Septiembre',
-				9: 'Octubre',
-				10: 'Noviembre',
-				11: 'Diciembre'
+				0: 'Diciembre',
+				1: 'Enero',
+				2: 'Febrero',
+				3: 'Marzo',
+				4: 'Abril',
+				5: 'Mayo',
+				6: 'Junio',
+				7: 'Julio',
+				8: 'Augosto',
+				9: 'Septiembre',
+				10: 'Octubre',
+				11: 'Noviembre'
+				
 			}
 			const days = ['Sábado', 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']
 			const d = newDate
@@ -82,6 +83,7 @@ class App extends React.Component {
 			const date = Number(d.split('-')[2])
     
 			const monthName = months[Number(d.split('-')[1])]
+			console.log(monthName)
 			const dayName = days[Number(d.split('-')[2])]
 			const formatted = `${dayName} ${date} de ${monthName} de ${year}`
 			return formatted.toString()
