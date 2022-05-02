@@ -5,6 +5,7 @@ const WeatherForm = (props) => (
     <form onSubmit={props.getWeather}>
       <div className="form-group">
         <select className="form-select" name="ciudad" aria-label="ciudad" placeholder="Ciudad" autoFocus>
+        <option value="" >Elige una ciudad</option>
           <option value="quito" >Quito</option>
           <option value="buenos aires">Buenos Aires</option>
           <option value="paris">Paris</option>
