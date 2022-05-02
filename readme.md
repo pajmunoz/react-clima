@@ -16,7 +16,7 @@
 
 `npm start`
 
-### Para build de proyecto para
+### Para build de proyecto usar:
 
 `npm run build`
 
