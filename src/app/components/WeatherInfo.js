@@ -7,7 +7,7 @@ const WeatherInfo = (props) => (
 	
 		{props.description ? (
 			<>
-				<div className="display-7 pt-3 p-2">Pronóstico de hoy <span className="fw-bold" onChange={stateChange} >{props.today_date}</span></div>
+				<div className="display-7 pt-3 p-2">Pronóstico de hoy <span className="fw-bold">{props.today_date}</span></div>
 				<div className="card card-body">
 					<div className="row d-flex justify-content-between align-items-center">
 						<div className="col">
