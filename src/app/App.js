@@ -3,6 +3,7 @@ import WeatherInfo from './components/WeatherInfo'
 import WeatherForm from './components/WeatherForm'
 import WeatherWeek from './components/WeatherWeek'
 import { WEATHER_KEY } from './keys'
+import moment from "moment"
 
 class App extends React.Component {
 	state = {
@@ -16,6 +17,7 @@ class App extends React.Component {
 		icon: '',
 		error: null,
 		today_date:'',
+		hour:'',
 		week: {
 			0: [
 				{
@@ -58,34 +60,15 @@ class App extends React.Component {
 
 	getWeather = async (e) => {
 		e.preventDefault()
+		moment.locale("es")
 		const { ciudad } = e.target.elements
 		const valCiudad = ciudad.value
+		
 
 		function formatDate(newDate) {
-			const months = {
-				0: 'Diciembre',
-				1: 'Enero',
-				2: 'Febrero',
-				3: 'Marzo',
-				4: 'Abril',
-				5: 'Mayo',
-				6: 'Junio',
-				7: 'Julio',
-				8: 'Augosto',
-				9: 'Septiembre',
-				10: 'Octubre',
-				11: 'Noviembre'
-				
-			}
-			const days = ['Sábado', 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']
-			const d = newDate
-			const year = Number(d.split('-')[0])
-			const date = Number(d.split('-')[2])
-    
-			const monthName = months[Number(d.split('-')[1])]
-			console.log(monthName)
-			const dayName = days[Number(d.split('-')[2])]
-			const formatted = `${dayName} ${date} de ${monthName} de ${year}`
+			const formatted = newDate.split(' ')[0]
+			
+			
 			return formatted.toString()
 		}
 
@@ -98,7 +81,7 @@ class App extends React.Component {
 			const data2 = await response2.json()
 
 			this.setState({
-				temperature: data.main.temp,
+				temperature: data.main.temp.toString().split(".")[0],
 				description: data.weather[0].description,
 				humidity: data.main.humidity,
 				wind_speed: data.wind.speed,
@@ -107,44 +90,45 @@ class App extends React.Component {
 				img_bg: data.weather[0].description,
 				icon: data.weather[0].icon,
 				error: null,
-				today_date:formatDate(data2.list[0].dt_txt.split(' ')[0]),
+				today_date:moment().format('LLLL').split(" ").splice(1,5).join(" "),
+				hour:moment().format('LTS'),
 				week: {
 					0: [
 						{
-							date: formatDate(data2.list[0].dt_txt.split(' ')[0]).split(' ')[0],
-							temperature: data2.list[0].main.temp,
+							date: formatDate(moment().add(1, 'days').calendar()),
+							temperature: data2.list[0].main.temp.toString().split(".")[0],
 							description: data2.list[0].weather[0].description,
 							icon: data2.list[0].weather[0].icon
 						},
 					],
 					1: [
 						{
-							date: formatDate(data2.list[8].dt_txt.split(' ')[0]).split(' ')[0],
-							temperature: data2.list[8].main.temp,
+							date: formatDate(moment().add(2, 'days').calendar()),
+							temperature: data2.list[8].main.temp.toString().split(".")[0],
 							description: data2.list[8].weather[0].description,
 							icon: data2.list[8].weather[0].icon
 						},
 					],
 					2: [
 						{
-							date: formatDate(data2.list[16].dt_txt.split(' ')[0]).split(' ')[0],
-							temperature: data2.list[16].main.temp,
+							date: formatDate(moment().add(3, 'days').calendar()),
+							temperature: data2.list[16].main.temp.toString().split(".")[0],
 							description: data2.list[16].weather[0].description,
 							icon: data2.list[16].weather[0].icon
 						},
 					],
 					3: [
 						{
-							date: formatDate(data2.list[24].dt_txt.split(' ')[0]).split(' ')[0],
-							temperature: data2.list[24].main.temp,
+							date:formatDate(moment().add(4, 'days').calendar()),
+							temperature: data2.list[24].main.temp.toString().split(".")[0],
 							description: data2.list[24].weather[0].description,
 							icon: data2.list[24].weather[0].icon
 						},
 					],
 					4: [
 						{
-							date: formatDate(data2.list[32].dt_txt.split(' ')[0]).split(' ')[0],
-							temperature: data2.list[32].main.temp,
+							date: formatDate(moment().add(5, 'days').calendar()),
+							temperature: data2.list[32].main.temp.toString().split(".")[0],
 							description: data2.list[32].weather[0].description,
 							icon: data2.list[32].weather[0].icon
 						},
@@ -154,8 +138,9 @@ class App extends React.Component {
 		} else {
 			this.setState({ error: 'Porfavor elije una ciudad' })
 		}
+		console.log(this.state.today_date)
 	}
-
+	
 	render() {
 		return (
 			<div className={`cont d-flex justify-content-center align-items-center p-4 ${this.state.img_bg}`}>
