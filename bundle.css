@@ -16,7 +16,7 @@ body{
 .icon-small img{
     width: 100%;
 }
-.lead, .fw-lighter{
+.lead, .fw-lighter,.fw-light{
     text-transform: capitalize;
     position: relative;
 }
